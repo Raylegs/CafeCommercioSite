@@ -1,0 +1,89 @@
+<!-- prenotazioni.html -->
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prenotazioni - Cafè Commercio</title>
+    <link rel="stylesheet" href="../Style/booking.css">
+    <link rel="stylesheet" href="../Style/Style.css">
+    <link rel="stylesheet" href="../Style/footer.css">
+</head>
+<body>
+  <section class="booking-section">
+    <h2>Prenota il tuo tavolo</h2>
+    <p>Compila i dati qui sotto e ti ricontatteremo al più presto per confermare la tua prenotazione.</p>
+    <form class="booking-form" action="https://wa.me/393711482178" method="get" target="_blank">
+      <label for="name">Nome</label>
+      <input type="text" id="name" name="name" placeholder="Il tuo nome" required>
+
+      <label for="people">Numero di persone</label>
+      <input type="number" id="people" name="people" placeholder="Es. 4" required>
+
+      <label for="date">Giorno della prenotazione</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="time">Orario desiderato</label>
+      <input type="time" id="time" name="time" required>
+
+      <label for="service">Tipo di servizio</label>
+      <select id="service" name="service" required>
+        <option value="">Seleziona...</option>
+        <option value="Aperitivo">Aperitivo</option>
+        <option value="Pranzo">Pranzo</option>
+        <option value="Cena">Cena</option>
+        <option value="Altro">Altro</option>
+      </select>
+
+      <label for="preference">Preferenza tavolo</label>
+      <select id="preference" name="preference">
+        <option value="">Nessuna preferenza</option>
+        <option value="Interno">Interno</option>
+        <option value="Esterno">Esterno</option>
+      </select>
+
+      <label for="notes">Richieste particolari</label>
+      <textarea id="notes" name="notes" rows="4" placeholder="Allergie, seggioloni, occasioni speciali..."></textarea>
+
+      <button type="submit">Prenota via WhatsApp</button>
+    </form>
+  </section>
+
+  <a href="../index.html" class="home-button">🏠 Home</a>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h4>Contatti</h4>
+        <p>Piazza Giuseppe Garibaldi 4<br>Sassuolo (MO)</p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/393711482178?text=Ciao%21%20%F0%9F%98%8A%20Vorrei%20prenotare%20un%20tavolo%20al%20Caf%C3%A8%20Commercio.%0A%0AEcco%20i%20miei%20dati%3A%0A%0A%F0%9F%91%A4%20Nome%3A%20%0A%F0%9F%91%A5%20Numero%20di%20persone%3A%20%0A%F0%9F%93%85%20Giorno%20della%20prenotazione%3A%20%0A%F0%9F%95%90%20Orario%20desiderato%3A%20%0A%F0%9F%8D%BD%EF%B8%8F%20Tipo%20di%20servizio%20%28Aperitivo%20%2F%20Pranzo%20%2F%20Cena%20%2F%20Altro%29%3A%20%0A%F0%9F%93%8D%20Preferenza%20%28Interno%20%2F%20Esterno%29%3A%20%0A%F0%9F%93%9D%EF%B8%8F%20Richieste%20particolari%3A%20" target="_blank">371 148 2178</a></p>
+        <p><strong>Email:</strong> <a href="mailto:cafecommercio@gmail.com">cafecommercio@gmail.com</a></p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Menù</h4>
+        <ul>
+          <li><a href="menu-pranzo.html">Pranzo</a></li>
+          <li><a href="menu-osteria.html">Osteria</a></li>
+          <li><a href="menu-pizza.html">Pizze</a></li>
+          <li><a href="menu-aperitivo.html">Aperitivo</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Seguici</h4>
+        <ul>
+          <li><a href="https://instagram.com">Instagram</a></li>
+          <li><a href="prenotazioni.html">Prenota un tavolo</a></li>
+          <li><a href="eventi.html">Eventi</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Cafè Commercio – Tutti i diritti riservati</p>
+    </div>
+  </footer>
+</body>
+</html>

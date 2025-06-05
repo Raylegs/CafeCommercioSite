@@ -1,0 +1,88 @@
+.booking-section {
+    background: radial-gradient(circle, #4a3f35, #2b221b);
+    color: #fefefe;
+    padding: 3rem 1rem;
+    text-align: center;
+  }
+
+  .booking-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #f2d19c;
+    margin-bottom: 1rem;
+  }
+
+  .booking-section p {
+    color: #ddd;
+    margin-bottom: 2rem;
+  }
+
+  .booking-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #3c2f27;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .booking-form label {
+    display: block;
+    margin-top: 1rem;
+    text-align: left;
+    font-weight: bold;
+    color: #f8f3eb;
+  }
+
+  .booking-form input,
+  .booking-form select,
+  .booking-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+  }
+
+  .booking-form button {
+    margin-top: 2rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #5f8c6b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .booking-form button:hover {
+    background-color: #497057;
+  }
+
+  .home-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #5f8c6b;
+    color: white;
+    padding: 0.75rem 1.2rem;
+    border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+  }
+
+  .home-button:hover {
+    background-color: #497057;
+  }
+
+  @media (max-width: 600px) {
+    .booking-section h2 {
+      font-size: 1.6rem;
+    }
+  }
