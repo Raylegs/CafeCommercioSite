@@ -3,18 +3,19 @@
 <html lang="it">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prenotazioni - Cafè Commercio</title>
-    <link rel="stylesheet" href="../Style/booking.css">
-    <link rel="stylesheet" href="../Style/Style.css">
-    <link rel="stylesheet" href="../Style/footer.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prenotazioni - Cafè Commercio</title>
+  <link rel="stylesheet" href="../Style/booking.css">
+  <link rel="stylesheet" href="../Style/Style.css">
+  <link rel="stylesheet" href="../Style/footer.css">
 </head>
+
 <body>
   <section class="booking-section">
     <h2>Prenota il tuo tavolo</h2>
     <p>Compila i dati qui sotto e ti ricontatteremo al più presto per confermare la tua prenotazione.</p>
-    <form class="booking-form" action="https://wa.me/393711482178" method="get" target="_blank">
+    <form class="booking-form">
       <label for="name">Nome</label>
       <input type="text" id="name" name="name" placeholder="Il tuo nome" required>
 
@@ -48,6 +49,39 @@
 
       <button type="submit">Prenota via WhatsApp</button>
     </form>
+
+
+    <script>
+      document.getElementById('booking-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const form = e.target;
+        const data = {
+          nome: form.name.value,
+          persone: form.people.value,
+          servizio: form.service.value,
+          giorno: form.date.value,
+          orario: form.time.value,
+          preferenze: form.preference.value,
+          extra: form.notes.value || '-'
+        };
+        // Componi il testo del messaggio
+        const text =
+          `Ciao! 😊 Vorrei prenotare un tavolo al Cafè Commercio.%0AEcco i miei dati:%0A` +
+          `👤 Nome: ${encodeURIComponent(data.nome)}%0A` +
+          `👥 Persone: ${data.persone}%0A` +
+          `🍽 Servizio: ${encodeURIComponent(data.servizio)}%0A` +
+          `📅 Giorno: ${data.giorno}%0A` +
+          `🕐 Orario: ${data.orario}%0A` +
+          `📍 Posto: ${data.preferenze}%0A` +
+          `📝 Note: ${encodeURIComponent(data.extra)}`;
+        // Numero WhatsApp del locale (prefisso +39 per Italia)
+        const phone = '393711482178';
+        // URL di WhatsApp
+        const url = `https://wa.me/${phone}?text=${text}`;
+        // Apri in nuova finestra/tab
+        window.open(url, '_blank');
+      });
+    </script>
   </section>
 
   <a href="../index.html" class="home-button">🏠 Home</a>
@@ -57,7 +91,9 @@
       <div class="footer-column">
         <h4>Contatti</h4>
         <p>Piazza Giuseppe Garibaldi 4<br>Sassuolo (MO)</p>
-        <p><strong>WhatsApp:</strong> <a href="https://wa.me/393711482178?text=Ciao%21%20%F0%9F%98%8A%20Vorrei%20prenotare%20un%20tavolo%20al%20Caf%C3%A8%20Commercio.%0A%0AEcco%20i%20miei%20dati%3A%0A%0A%F0%9F%91%A4%20Nome%3A%20%0A%F0%9F%91%A5%20Numero%20di%20persone%3A%20%0A%F0%9F%93%85%20Giorno%20della%20prenotazione%3A%20%0A%F0%9F%95%90%20Orario%20desiderato%3A%20%0A%F0%9F%8D%BD%EF%B8%8F%20Tipo%20di%20servizio%20%28Aperitivo%20%2F%20Pranzo%20%2F%20Cena%20%2F%20Altro%29%3A%20%0A%F0%9F%93%8D%20Preferenza%20%28Interno%20%2F%20Esterno%29%3A%20%0A%F0%9F%93%9D%EF%B8%8F%20Richieste%20particolari%3A%20" target="_blank">371 148 2178</a></p>
+        <p><strong>WhatsApp:</strong> <a
+            href="https://wa.me/393711482178?text=Ciao%21%20%F0%9F%98%8A%20Vorrei%20prenotare%20un%20tavolo%20al%20Caf%C3%A8%20Commercio.%0A%0AEcco%20i%20miei%20dati%3A%0A%0A%F0%9F%91%A4%20Nome%3A%20%0A%F0%9F%91%A5%20Numero%20di%20persone%3A%20%0A%F0%9F%93%85%20Giorno%20della%20prenotazione%3A%20%0A%F0%9F%95%90%20Orario%20desiderato%3A%20%0A%F0%9F%8D%BD%EF%B8%8F%20Tipo%20di%20servizio%20%28Aperitivo%20%2F%20Pranzo%20%2F%20Cena%20%2F%20Altro%29%3A%20%0A%F0%9F%93%8D%20Preferenza%20%28Interno%20%2F%20Esterno%29%3A%20%0A%F0%9F%93%9D%EF%B8%8F%20Richieste%20particolari%3A%20"
+            target="_blank">371 148 2178</a></p>
         <p><strong>Email:</strong> <a href="mailto:cafecommercio@gmail.com">cafecommercio@gmail.com</a></p>
       </div>
 
@@ -86,4 +122,5 @@
     </div>
   </footer>
 </body>
+
 </html>
