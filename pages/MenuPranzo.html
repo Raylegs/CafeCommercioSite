@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menù Pizzeria - Cafè Commercio</title>
+    <link rel="stylesheet" href="../Style/Menu.css">
+    <link rel="stylesheet" href="../Style/footer.css">
+</head>
+
+<body>
+    <nav>
+        <img src="../images/black-logo.png" alt="Logo" class="logo">
+        <ul>
+            <li><a href="#primo">Primo</a></li>
+            <li><a href="#secondo">Secondo</a></li>
+            <li><a href="#pizza">Pizza</a></li>
+            <li><a href="#salad">Salad</a></li>
+        </ul>
+        <button id="toggle-theme" class="toggle-theme">🌓</button>
+    </nav>
+    <main class="menu-section">
+
+        <div class="chef-description">
+            <h1>Il Menù del Pranzo</h1>
+            <p>
+                Il nostro menù pranzo è pensato per offrire una pausa gustosa e rilassante, con una proposta snella ma
+                completa.
+                Ogni settimana proponiamo ricette diverse, pensate per valorizzare i migliori ingredienti del momento.
+                Le proposte variano con la stagionalità e la creatività della nostra cucina, per questo motivo non
+                troverai l’elenco dettagliato dei piatti, ma potrai scoprirli direttamente in sala grazie al menù
+                cartaceo aggiornato.
+            </p>
+            <p>
+                Il coperto, il contorno, l’acqua e il caffè sono sempre offerti dalla casa.
+            </p>
+        </div>
+
+        
+        <h2>Menù Pranzo</h2>
+        <div class="menu-item">
+            <h3 id="primo" >Opzione Primo Piatto <span style="float:right">14 €</span></h3>
+            <p>Un primo piatto del giorno, sempre diverso, ispirato alla tradizione e alla stagionalità.</p>
+        </div>
+
+        <div  id="secondo" class="menu-item">
+            <h3>Opzione Secondo Piatto <span style="float:right">16 €</span></h3>
+            <p>Una proposta di secondo piatto, con contorno incluso, ogni settimana nuova e bilanciata.</p>
+        </div>
+
+        <div  id="pizza"  class="menu-item">
+            <h3>Opzione Pizza <span style="float:right">13 €</span></h3>
+            <p>Una selezione di pizze appositamente pensata per la pausa pranzo.</p>
+        </div>
+
+        <div  id="salad"  class="menu-item">
+            <h3>Opzione Insalate <span style="float:right">13 €</span></h3>
+            <p>Grandi insalate complete e creative, ideali per chi cerca qualcosa di fresco e leggero.</p>
+        </div>
+    </main>
+
+
+    <div class="floating-submenu" id="floating-submenu">
+        <a href="../index.html">Home</a>
+        <a href="../pages/MenuAperitivo.html">Menù Aperitivo</a>
+        <a href="../pages/MenuOsteria.html">Menù Osteria</a>
+        <a href="../pages/MenuPizzeria.html">Menù Pizzeria</a>
+    </div>
+    <div class="floating-button" id="floating-button">☰</div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const navLinks = document.querySelectorAll("nav ul li a");
+            const sections = document.querySelectorAll(".menu-section h2");
+            const items = document.querySelectorAll(".menu-item");
+            const toggleBtn = document.getElementById("toggle-theme");
+            const body = document.body;
+            const floatingBtn = document.getElementById("floating-button");
+            const submenu = document.getElementById("floating-submenu");
+
+            toggleBtn.addEventListener("click", () => {
+                body.classList.toggle("dark");
+                body.classList.toggle("light");
+            });
+
+            window.addEventListener("scroll", () => {
+                let current = "";
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 120;
+                    if (pageYOffset >= sectionTop) {
+                        current = section.getAttribute("id");
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove("active");
+                    if (link.getAttribute("href") === `#${current}`) {
+                        link.classList.add("active");
+                    }
+                });
+
+                items.forEach(item => {
+                    const itemTop = item.getBoundingClientRect().top;
+                    if (itemTop < window.innerHeight - 100) {
+                        item.classList.add("visible");
+                    }
+                });
+            });
+
+            body.classList.add((new Date().getHours() >= 18) ? "dark" : "light");
+
+            floatingBtn.addEventListener("click", () => {
+                floatingBtn.classList.toggle("open");
+                submenu.classList.toggle("show");
+            });
+        });
+    </script>
+
+
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Contatti</h4>
+                <p>Piazza Giuseppe Garibaldi 4<br>Sassuolo (MO)</p>
+                <p><strong>WhatsApp:</strong> <a href="https://wa.me/393711482178" target="_blank">371 148 2178</a></p>
+                <p><strong>Email:</strong> <a href="mailto:cafecommercio@gmail.com">cafecommercio@gmail.com</a></p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Menù</h4>
+                <ul>
+                    <li><a href="menu-pranzo.html">Pranzo</a></li>
+                    <li><a href="menu-osteria.html">Osteria</a></li>
+                    <li><a href="menu-pizza.html">Pizze</a></li>
+                    <li><a href="menu-aperitivo.html">Aperitivo</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Seguici</h4>
+                <ul>
+                    <li><a href="https://instagram.com">Instagram</a></li>
+                    <li><a href="pages/booking.html">Prenota un tavolo</a></li>
+                    <li><a href="eventi.html">Eventi</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Cafè Commercio – Tutti i diritti riservati</p>
+        </div>
+    </footer>
+</body>
+
+</html>
