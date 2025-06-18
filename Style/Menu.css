@@ -429,3 +429,72 @@ body.dark {
 .cocktail-detail[open]>summary::after {
     transform: translateY(-50%) rotate(180deg);
 }
+
+.novita-carousel {
+  max-width: 850px;
+  margin: 4rem auto;
+  text-align: center;
+}
+.novita-carousel h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-text);
+}
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+.card {
+  flex: 0 0 250px;
+  margin: 0 0.5rem;
+  background: var(--color-section);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: center;
+}
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+}
+.card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  color: var(--menu-text);
+}
+.card p {
+  font-size: 0.95rem;
+  color: var(--menu-text);
+}
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--color-accent);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.8;
+
+  padding-bottom: 5px;
+
+  z-index: 100;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-nav.prev { left: 0; }
+.carousel-nav.next { right: 0; }
+.carousel-nav:hover { opacity: 1; }

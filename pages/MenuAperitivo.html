@@ -24,6 +24,40 @@
     <main class="menu-section">
         <h2>Menù Aperitivo</h2>
 
+        <!-- Carousel Novità Tabar -->
+        <section class="novita-carousel">
+            <h2>Novità Gin Tabar</h2>
+            <div class="carousel-container">
+                <button class="carousel-nav prev">‹</button>
+                <div class="carousel-track">
+                    <div class="card">
+                        <img src="../images/gin/tabar_london.jpg" alt="Tabar London Dry">
+                        <h3>Tabar London Dry</h3>
+                        <p>Secco, agrumato, con intenso ginepro. 12 €</p>
+                    </div>
+                    <div class="card">
+                        <img src="../images/gin/tabar_ciliegia.jpg" alt="Tabar Ciliegia">
+                        <h3>Tabar Ciliegia</h3>
+                        <p>Dolce e fruttato, nota di ciliegia fresca. 12 €</p>
+                    </div>
+                    <div class="card">
+                        <img src="../images/gin/tabar_pera.webp" alt="Tabar Pera">
+                        <h3>Tabar Pera</h3>
+                        <p>Morbido e avvolgente, con pera italiana. 12 €</p>
+                    </div>
+                    <div class="card">
+                        <img src="../images/gin/tabar_bergamotto.jpg" alt="Tabar Bergamotto">
+                        <h3>Tabar Bergamotto</h3>
+                        <p>Fresco e aromatico, bergamotto di Calabria. 12 €</p>
+                    </div>
+                </div>
+                <button class="carousel-nav next">›</button>
+            </div>
+        </section>
+
+
+
+
         <!-- Sezione Vini -->
         <div id="enoteca" class="section-header">Vini al Calice</div>
 
@@ -1115,6 +1149,28 @@
                 submenu.classList.toggle("show");
             });
         });
+        const track = document.querySelector('.carousel-track');
+        const prev = document.querySelector('.carousel-nav.prev');
+        const next = document.querySelector('.carousel-nav.next');
+        let index = 0;
+
+        function updateCarousel() {
+            const cardWidth = document.querySelector('.card').offsetWidth + 16; // margini
+            track.style.transform = `translateX(-${index * cardWidth}px)`;
+        }
+
+        prev.addEventListener('click', () => {
+            index = Math.max(index - 1, 0);
+            updateCarousel();
+        });
+        next.addEventListener('click', () => {
+            const maxIndex = document.querySelectorAll('.card').length - Math.floor(track.parentElement.offsetWidth / (document.querySelector('.card').offsetWidth + 16));
+            index = Math.min(index + 1, maxIndex);
+            updateCarousel();
+        });
+
+        window.addEventListener('resize', updateCarousel);
+
     </script>
 
 
